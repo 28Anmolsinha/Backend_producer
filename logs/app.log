@@ -1,0 +1,945 @@
+2025-03-28 10:41:02 [main] INFO  com.backend.demo.DemoApplication - Starting DemoApplication using Java 23.0.2 with PID 14512 (C:\Users\Anmol Sinha\Desktop\demo\target\classes started by Anmol Sinha in C:\Users\Anmol Sinha\Desktop\demo)
+2025-03-28 10:41:02 [main] INFO  com.backend.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+2025-03-28 10:41:03 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-03-28 10:41:03 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-03-28 10:41:03 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 150 ms. Found 1 JPA repository interface.
+2025-03-28 10:41:03 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-03-28 10:41:03 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-03-28 10:41:03 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.backend.demo.repository.ComplaintRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2025-03-28 10:41:03 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 5 ms. Found 0 Redis repository interfaces.
+2025-03-28 10:41:04 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-03-28 10:41:04 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-03-28 10:41:04 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2025-03-28 10:41:04 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.31]
+2025-03-28 10:41:04 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-03-28 10:41:04 [main] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1976 ms
+2025-03-28 10:41:04 [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-03-28 10:41:04 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.3.Final
+2025-03-28 10:41:04 [main] INFO  org.hibernate.cache.internal.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-03-28 10:41:04 [main] INFO  org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-03-28 10:41:04 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-03-28 10:41:05 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@1df9f7c6
+2025-03-28 10:41:05 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-03-28 10:41:06 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-03-28 10:41:06 [main] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-03-28 10:41:07 [main] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-03-28 10:41:07 [main] INFO  com.backend.demo.config.RabbitMQConfig - Configuring Jackson2JsonMessageConverter for RabbitMQ
+2025-03-28 10:41:07 [main] INFO  com.backend.demo.config.RedisConfig - Initializing Redis Connection Factory with Host: 10.200.208.98 and Port: 32549
+2025-03-28 10:41:07 [main] INFO  com.backend.demo.config.RedisConfig - Configuring Redis Template...
+2025-03-28 10:41:07 [main] INFO  com.backend.demo.config.RedisConfig - Redis Template successfully initialized.
+2025-03-28 10:41:07 [main] INFO  com.backend.demo.config.RabbitMQConfig - Creating Direct Exchange: complaint_exchange
+2025-03-28 10:41:07 [main] INFO  com.backend.demo.config.RabbitMQConfig - Creating Queue: infrastructure_queue
+2025-03-28 10:41:07 [main] INFO  com.backend.demo.config.RabbitMQConfig - Creating Queue: electricity_queue
+2025-03-28 10:41:07 [main] INFO  com.backend.demo.config.RabbitMQConfig - Creating Queue: legal_queue
+2025-03-28 10:41:07 [main] INFO  com.backend.demo.config.RabbitMQConfig - Binding Queue infrastructure_queue to Exchange complaint_exchange with Routing Key complaint.infrastructure
+2025-03-28 10:41:07 [main] INFO  com.backend.demo.config.RabbitMQConfig - Binding Queue electricity_queue to Exchange complaint_exchange with Routing Key complaint.electricity
+2025-03-28 10:41:07 [main] INFO  com.backend.demo.config.RabbitMQConfig - Binding Queue legal_queue to Exchange complaint_exchange with Routing Key complaint.legal
+2025-03-28 10:41:07 [main] WARN  org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-03-28 10:41:08 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-03-28 10:41:08 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2025-03-28 10:41:08 [main] INFO  org.springframework.amqp.rabbit.connection.CachingConnectionFactory - Attempting to connect to: [10.200.208.98:30280]
+2025-03-28 10:41:08 [main] INFO  org.springframework.amqp.rabbit.connection.CachingConnectionFactory - Created new connection: rabbitConnectionFactory#4ee1c29a:0/SimpleConnection@4434eb51 [delegate=amqp://user@10.200.208.98:30280/, localPort=51712]
+2025-03-28 10:41:09 [main] INFO  com.backend.demo.DemoApplication - Started DemoApplication in 7.786 seconds (process running for 9.119)
+2025-03-28 10:41:09 [main] INFO  com.backend.demo.DemoApplication - Application started...
+2025-03-28 10:42:03 [http-nio-8080-exec-1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-03-28 10:42:03 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-03-28 10:42:03 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 49 ms
+2025-03-28 10:42:03 [http-nio-8080-exec-2] INFO  com.backend.demo.controller.ComplaintController - Received complaint creation request: Complaint{id='1', name='The Anmol', issueType='legal', description='Legal issue.'}
+2025-03-28 10:42:03 [http-nio-8080-exec-2] INFO  com.backend.demo.service.RabbitMQProducer - Sending complaint to RabbitMQ with routing key complaint.legal: Complaint{id='1', name='The Anmol', issueType='legal', description='Legal issue.'}
+2025-03-28 10:42:03 [http-nio-8080-exec-2] INFO  com.backend.demo.controller.ComplaintController - Complaint submitted successfully!
+2025-03-28 10:42:04 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-1] INFO  com.backend.demo.service.RabbitMQConsumer - Received Legal complaint: Complaint{id='1', name='The Anmol', issueType='legal', description='Legal issue.'}
+2025-03-28 10:42:04 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-1] INFO  com.backend.demo.service.LegalService - Processing legal complaint: Complaint{id='1', name='The Anmol', issueType='legal', description='Legal issue.'}
+2025-03-28 10:42:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-1] INFO  com.backend.demo.service.LegalService - Legal team is checking documents and regulations...
+2025-03-28 10:42:07 [http-nio-8080-exec-4] INFO  com.backend.demo.controller.ComplaintController - Fetching top complaints.
+2025-03-28 10:42:07 [http-nio-8080-exec-4] INFO  com.backend.demo.service.RedisService - Fetching top complaints from Redis.
+2025-03-28 10:42:07 [http-nio-8080-exec-4] INFO  com.backend.demo.service.RedisService - Top complaints retrieved from Redis: [Complaint{id='8', name='Viraj', issueType='legal', description='Legal issue is there.'}, Complaint{id='7', name='Anmol Sinha', issueType='legal', description='Legal issue.'}, Complaint{id='6', name='Yuvi', issueType='legal', description='Someone is facing legal issues.'}]
+2025-03-28 10:42:08 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-1] INFO  com.backend.demo.service.LegalService - Legal team is analyzing case details...
+2025-03-28 10:42:10 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-1] INFO  com.backend.demo.service.LegalService - Legal issue resolved successfully!
+2025-03-28 10:42:10 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-1] INFO  com.backend.demo.service.RedisService - Saving complaint to Redis: Complaint{id='1', name='The Anmol', issueType='legal', description='Legal issue.'}
+2025-03-28 10:42:10 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-1] INFO  com.backend.demo.service.RedisService - Updated Redis List: [Complaint{id='1', name='The Anmol', issueType='legal', description='Legal issue.'}, Complaint{id='8', name='Viraj', issueType='legal', description='Legal issue is there.'}, Complaint{id='7', name='Anmol Sinha', issueType='legal', description='Legal issue.'}]
+2025-03-28 10:42:10 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-1] INFO  com.backend.demo.service.RedisService - Complaint saved in Redis.
+2025-03-28 10:42:10 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-1] INFO  com.backend.demo.service.LegalService - Complaint saved to database and Redis cache.
+2025-03-28 10:42:13 [http-nio-8080-exec-6] INFO  com.backend.demo.controller.ComplaintController - Fetching top complaints.
+2025-03-28 10:42:13 [http-nio-8080-exec-6] INFO  com.backend.demo.service.RedisService - Fetching top complaints from Redis.
+2025-03-28 10:42:13 [http-nio-8080-exec-6] INFO  com.backend.demo.service.RedisService - Top complaints retrieved from Redis: [Complaint{id='1', name='The Anmol', issueType='legal', description='Legal issue.'}, Complaint{id='8', name='Viraj', issueType='legal', description='Legal issue is there.'}, Complaint{id='7', name='Anmol Sinha', issueType='legal', description='Legal issue.'}]
+2025-03-28 10:46:39 [http-nio-8080-exec-5] INFO  com.backend.demo.controller.ComplaintController - Received complaint creation request: Complaint{id='2', name='Riti', issueType='infrastructure', description='Infra.'}
+2025-03-28 10:46:39 [http-nio-8080-exec-5] INFO  com.backend.demo.service.RabbitMQProducer - Sending complaint to RabbitMQ with routing key complaint.infrastructure: Complaint{id='2', name='Riti', issueType='infrastructure', description='Infra.'}
+2025-03-28 10:46:39 [http-nio-8080-exec-5] INFO  com.backend.demo.controller.ComplaintController - Complaint submitted successfully!
+2025-03-28 10:46:39 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  com.backend.demo.service.RabbitMQConsumer - Received Infrastructure complaint: Complaint{id='2', name='Riti', issueType='infrastructure', description='Infra.'}
+2025-03-28 10:46:39 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  com.backend.demo.service.InfrastructureService - Processing infrastructure complaint: Complaint{id='2', name='Riti', issueType='infrastructure', description='Infra.'}
+2025-03-28 10:46:41 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  com.backend.demo.service.InfrastructureService - Infrastructure team is reviewing the complaint...
+2025-03-28 10:46:43 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  com.backend.demo.service.InfrastructureService - Infrastructure team is working on resolving the issue...
+2025-03-28 10:46:45 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  com.backend.demo.service.InfrastructureService - Infrastructure issue resolved successfully!
+2025-03-28 10:46:46 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  com.backend.demo.service.RedisService - Saving complaint to Redis: Complaint{id='2', name='Riti', issueType='infrastructure', description='Infra.'}
+2025-03-28 10:46:46 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  com.backend.demo.service.RedisService - Updated Redis List: [Complaint{id='2', name='Riti', issueType='infrastructure', description='Infra.'}, Complaint{id='1', name='The Anmol', issueType='legal', description='Legal issue.'}, Complaint{id='8', name='Viraj', issueType='legal', description='Legal issue is there.'}]
+2025-03-28 10:46:46 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  com.backend.demo.service.RedisService - Complaint saved in Redis.
+2025-03-28 10:46:46 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  com.backend.demo.service.InfrastructureService - Complaint saved to database and Redis cache.
+2025-03-28 11:19:00 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer - Waiting for workers to finish.
+2025-03-28 11:19:00 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2] INFO  org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer - Waiting for workers to finish.
+2025-03-28 11:19:00 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-2] INFO  org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer - Waiting for workers to finish.
+2025-03-28 11:19:00 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer - Successfully waited for workers to finish.
+2025-03-28 11:19:00 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-2] INFO  org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer - Successfully waited for workers to finish.
+2025-03-28 11:19:01 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2] INFO  org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer - Successfully waited for workers to finish.
+2025-03-28 11:19:01 [SpringApplicationShutdownHook] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-03-28 11:19:01 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-03-28 11:19:01 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-03-28 11:19:06 [main] INFO  com.backend.demo.DemoApplication - Starting DemoApplication using Java 23.0.2 with PID 20776 (C:\Users\Anmol Sinha\Desktop\demo\target\classes started by Anmol Sinha in C:\Users\Anmol Sinha\Desktop\demo)
+2025-03-28 11:19:07 [main] INFO  com.backend.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+2025-03-28 11:19:08 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-03-28 11:19:08 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-03-28 11:19:08 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 130 ms. Found 1 JPA repository interface.
+2025-03-28 11:19:08 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-03-28 11:19:08 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-03-28 11:19:08 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.backend.demo.repository.ComplaintRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2025-03-28 11:19:08 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 5 ms. Found 0 Redis repository interfaces.
+2025-03-28 11:19:08 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-03-28 11:19:08 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-03-28 11:19:08 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2025-03-28 11:19:08 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.31]
+2025-03-28 11:19:08 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-03-28 11:19:08 [main] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1899 ms
+2025-03-28 11:19:09 [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-03-28 11:19:09 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.3.Final
+2025-03-28 11:19:09 [main] INFO  org.hibernate.cache.internal.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-03-28 11:19:09 [main] INFO  org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-03-28 11:19:09 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-03-28 11:19:10 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@36ecf9f6
+2025-03-28 11:19:10 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-03-28 11:19:10 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-03-28 11:19:10 [main] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-03-28 11:19:10 [main] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-03-28 11:19:10 [main] INFO  com.backend.demo.config.RabbitMQConfig - Configuring Jackson2JsonMessageConverter for RabbitMQ
+2025-03-28 11:19:11 [main] INFO  com.backend.demo.config.RedisConfig - Initializing Redis Connection Factory with Host: 10.200.208.98 and Port: 32549
+2025-03-28 11:19:11 [main] INFO  com.backend.demo.config.RedisConfig - Configuring Redis Template...
+2025-03-28 11:19:11 [main] INFO  com.backend.demo.config.RedisConfig - Redis Template successfully initialized.
+2025-03-28 11:19:11 [main] INFO  com.backend.demo.config.RabbitMQConfig - Creating Direct Exchange: complaint_exchange
+2025-03-28 11:19:11 [main] INFO  com.backend.demo.config.RabbitMQConfig - Creating Queue: infrastructure_queue
+2025-03-28 11:19:11 [main] INFO  com.backend.demo.config.RabbitMQConfig - Creating Queue: electricity_queue
+2025-03-28 11:19:11 [main] INFO  com.backend.demo.config.RabbitMQConfig - Creating Queue: legal_queue
+2025-03-28 11:19:11 [main] INFO  com.backend.demo.config.RabbitMQConfig - Binding Queue infrastructure_queue to Exchange complaint_exchange with Routing Key complaint.infrastructure
+2025-03-28 11:19:11 [main] INFO  com.backend.demo.config.RabbitMQConfig - Binding Queue electricity_queue to Exchange complaint_exchange with Routing Key complaint.electricity
+2025-03-28 11:19:11 [main] INFO  com.backend.demo.config.RabbitMQConfig - Binding Queue legal_queue to Exchange complaint_exchange with Routing Key complaint.legal
+2025-03-28 11:19:11 [main] WARN  org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-03-28 11:19:12 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-03-28 11:19:12 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2025-03-28 11:19:12 [main] INFO  org.springframework.amqp.rabbit.connection.CachingConnectionFactory - Attempting to connect to: [10.200.208.98:30280]
+2025-03-28 11:19:12 [main] INFO  org.springframework.amqp.rabbit.connection.CachingConnectionFactory - Created new connection: rabbitConnectionFactory#3093161a:0/SimpleConnection@613d42ab [delegate=amqp://user@10.200.208.98:30280/, localPort=53151]
+2025-03-28 11:19:12 [main] INFO  com.backend.demo.DemoApplication - Started DemoApplication in 5.673 seconds (process running for 6.73)
+2025-03-28 11:19:12 [main] INFO  com.backend.demo.DemoApplication - Application started...
+2025-03-28 11:28:55 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer - Waiting for workers to finish.
+2025-03-28 11:28:55 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-2] INFO  org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer - Waiting for workers to finish.
+2025-03-28 11:28:55 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2] INFO  org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer - Waiting for workers to finish.
+2025-03-28 11:28:55 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-2] INFO  org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer - Successfully waited for workers to finish.
+2025-03-28 11:28:55 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer - Successfully waited for workers to finish.
+2025-03-28 11:28:56 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2] INFO  org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer - Successfully waited for workers to finish.
+2025-03-28 11:28:56 [SpringApplicationShutdownHook] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-03-28 11:28:56 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-03-28 11:28:56 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-03-28 11:29:34 [main] INFO  com.backend.demo.DemoApplication - Starting DemoApplication using Java 23.0.2 with PID 6548 (C:\Users\Anmol Sinha\Desktop\demo\target\classes started by Anmol Sinha in C:\Users\Anmol Sinha\Desktop\demo)
+2025-03-28 11:29:34 [main] INFO  com.backend.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+2025-03-28 11:29:35 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-03-28 11:29:35 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-03-28 11:29:35 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 221 ms. Found 1 JPA repository interface.
+2025-03-28 11:29:35 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-03-28 11:29:35 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-03-28 11:29:35 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.backend.demo.repository.ComplaintRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2025-03-28 11:29:35 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 14 ms. Found 0 Redis repository interfaces.
+2025-03-28 11:29:37 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-03-28 11:29:37 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-03-28 11:29:37 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2025-03-28 11:29:37 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.31]
+2025-03-28 11:29:37 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-03-28 11:29:37 [main] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2709 ms
+2025-03-28 11:29:37 [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-03-28 11:29:37 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.3.Final
+2025-03-28 11:29:37 [main] INFO  org.hibernate.cache.internal.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-03-28 11:29:38 [main] INFO  org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-03-28 11:29:38 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-03-28 11:29:39 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@538905d2
+2025-03-28 11:29:39 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-03-28 11:29:39 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-03-28 11:29:40 [main] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-03-28 11:29:40 [main] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-03-28 11:29:40 [main] INFO  com.backend.demo.config.RabbitMQConfig - Configuring Jackson2JsonMessageConverter for RabbitMQ
+2025-03-28 11:29:40 [main] INFO  com.backend.demo.config.RedisConfig - Initializing Redis Connection Factory with Host: 10.200.208.98 and Port: 32549
+2025-03-28 11:29:41 [main] INFO  com.backend.demo.config.RedisConfig - Configuring Redis Template...
+2025-03-28 11:29:41 [main] INFO  com.backend.demo.config.RedisConfig - Redis Template successfully initialized.
+2025-03-28 11:29:41 [main] INFO  com.backend.demo.config.RabbitMQConfig - Creating Direct Exchange: complaint_exchange
+2025-03-28 11:29:41 [main] INFO  com.backend.demo.config.RabbitMQConfig - Creating Queue: infrastructure_queue
+2025-03-28 11:29:41 [main] INFO  com.backend.demo.config.RabbitMQConfig - Creating Queue: electricity_queue
+2025-03-28 11:29:41 [main] INFO  com.backend.demo.config.RabbitMQConfig - Creating Queue: legal_queue
+2025-03-28 11:29:41 [main] INFO  com.backend.demo.config.RabbitMQConfig - Binding Queue infrastructure_queue to Exchange complaint_exchange with Routing Key complaint.infrastructure
+2025-03-28 11:29:41 [main] INFO  com.backend.demo.config.RabbitMQConfig - Binding Queue electricity_queue to Exchange complaint_exchange with Routing Key complaint.electricity
+2025-03-28 11:29:41 [main] INFO  com.backend.demo.config.RabbitMQConfig - Binding Queue legal_queue to Exchange complaint_exchange with Routing Key complaint.legal
+2025-03-28 11:29:41 [main] WARN  org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-03-28 11:29:42 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-03-28 11:29:42 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2025-03-28 11:29:42 [main] INFO  org.springframework.amqp.rabbit.connection.CachingConnectionFactory - Attempting to connect to: [10.200.208.98:30280]
+2025-03-28 11:29:42 [main] INFO  org.springframework.amqp.rabbit.connection.CachingConnectionFactory - Created new connection: rabbitConnectionFactory#2ef63b6d:0/SimpleConnection@761d679f [delegate=amqp://user@10.200.208.98:30280/, localPort=53485]
+2025-03-28 11:29:42 [main] INFO  com.backend.demo.DemoApplication - Started DemoApplication in 8.977 seconds (process running for 10.803)
+2025-03-28 11:29:42 [main] INFO  com.backend.demo.DemoApplication - Application started...
+2025-03-28 11:41:55 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2] INFO  org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer - Waiting for workers to finish.
+2025-03-28 11:41:55 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer - Waiting for workers to finish.
+2025-03-28 11:41:55 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-2] INFO  org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer - Waiting for workers to finish.
+2025-03-28 11:41:55 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer - Successfully waited for workers to finish.
+2025-03-28 11:41:55 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-2] INFO  org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer - Successfully waited for workers to finish.
+2025-03-28 11:41:55 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2] INFO  org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer - Successfully waited for workers to finish.
+2025-03-28 11:41:56 [SpringApplicationShutdownHook] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-03-28 11:41:56 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-03-28 11:41:56 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-03-28 11:42:03 [main] INFO  com.backend.demo.DemoApplication - Starting DemoApplication using Java 23.0.2 with PID 7040 (C:\Users\Anmol Sinha\Desktop\demo\target\classes started by Anmol Sinha in C:\Users\Anmol Sinha\Desktop\demo)
+2025-03-28 11:42:03 [main] INFO  com.backend.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+2025-03-28 11:42:04 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-03-28 11:42:04 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-03-28 11:42:05 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 219 ms. Found 1 JPA repository interface.
+2025-03-28 11:42:05 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-03-28 11:42:05 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-03-28 11:42:05 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.backend.demo.repository.ComplaintRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2025-03-28 11:42:05 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 12 ms. Found 0 Redis repository interfaces.
+2025-03-28 11:42:06 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-03-28 11:42:06 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-03-28 11:42:06 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2025-03-28 11:42:06 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.31]
+2025-03-28 11:42:06 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-03-28 11:42:06 [main] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2650 ms
+2025-03-28 11:42:06 [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-03-28 11:42:06 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.3.Final
+2025-03-28 11:42:06 [main] INFO  org.hibernate.cache.internal.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-03-28 11:42:07 [main] INFO  org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-03-28 11:42:07 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-03-28 11:42:08 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@36ecf9f6
+2025-03-28 11:42:08 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-03-28 11:42:08 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-03-28 11:42:09 [main] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-03-28 11:42:09 [main] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-03-28 11:42:09 [main] INFO  com.backend.demo.config.RabbitMQConfig - Configuring Jackson2JsonMessageConverter for RabbitMQ
+2025-03-28 11:42:09 [main] INFO  com.backend.demo.config.RedisConfig - Initializing Redis Connection Factory with Host: 10.200.208.98 and Port: 32549
+2025-03-28 11:42:09 [main] INFO  com.backend.demo.config.RedisConfig - Configuring Redis Template...
+2025-03-28 11:42:10 [main] INFO  com.backend.demo.config.RedisConfig - Redis Template successfully initialized.
+2025-03-28 11:42:10 [main] INFO  com.backend.demo.config.RabbitMQConfig - Creating Direct Exchange: complaint_exchange
+2025-03-28 11:42:10 [main] INFO  com.backend.demo.config.RabbitMQConfig - Creating Queue: infrastructure_queue
+2025-03-28 11:42:10 [main] INFO  com.backend.demo.config.RabbitMQConfig - Creating Queue: electricity_queue
+2025-03-28 11:42:10 [main] INFO  com.backend.demo.config.RabbitMQConfig - Creating Queue: legal_queue
+2025-03-28 11:42:10 [main] INFO  com.backend.demo.config.RabbitMQConfig - Binding Queue infrastructure_queue to Exchange complaint_exchange with Routing Key complaint.infrastructure
+2025-03-28 11:42:10 [main] INFO  com.backend.demo.config.RabbitMQConfig - Binding Queue electricity_queue to Exchange complaint_exchange with Routing Key complaint.electricity
+2025-03-28 11:42:10 [main] INFO  com.backend.demo.config.RabbitMQConfig - Binding Queue legal_queue to Exchange complaint_exchange with Routing Key complaint.legal
+2025-03-28 11:42:10 [main] WARN  org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-03-28 11:42:11 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-03-28 11:42:11 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2025-03-28 11:42:11 [main] INFO  org.springframework.amqp.rabbit.connection.CachingConnectionFactory - Attempting to connect to: [10.200.208.98:30280]
+2025-03-28 11:42:11 [main] INFO  org.springframework.amqp.rabbit.connection.CachingConnectionFactory - Created new connection: rabbitConnectionFactory#73a88711:0/SimpleConnection@613d42ab [delegate=amqp://user@10.200.208.98:30280/, localPort=53802]
+2025-03-28 11:42:11 [main] INFO  com.backend.demo.DemoApplication - Started DemoApplication in 8.759 seconds (process running for 10.559)
+2025-03-28 11:42:11 [main] INFO  com.backend.demo.DemoApplication - Application started...
+2025-03-28 13:06:32 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer - Waiting for workers to finish.
+2025-03-28 13:06:32 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2] INFO  org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer - Waiting for workers to finish.
+2025-03-28 13:06:32 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-2] INFO  org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer - Waiting for workers to finish.
+2025-03-28 13:06:32 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-2] INFO  org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer - Successfully waited for workers to finish.
+2025-03-28 13:06:32 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer - Successfully waited for workers to finish.
+2025-03-28 13:06:32 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2] INFO  org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer - Successfully waited for workers to finish.
+2025-03-28 13:06:33 [SpringApplicationShutdownHook] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-03-28 13:06:33 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-03-28 13:06:33 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-03-28 13:08:19 [main] INFO  com.backend.demo.DemoApplication - Starting DemoApplication using Java 23.0.2 with PID 10684 (C:\Users\Anmol Sinha\Desktop\demo\target\classes started by Anmol Sinha in C:\Users\Anmol Sinha\Desktop\demo)
+2025-03-28 13:08:19 [main] INFO  com.backend.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+2025-03-28 13:08:20 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-03-28 13:08:20 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-03-28 13:08:20 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 20 ms. Found 0 JPA repository interfaces.
+2025-03-28 13:08:20 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-03-28 13:08:20 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-03-28 13:08:20 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 3 ms. Found 0 Redis repository interfaces.
+2025-03-28 13:08:21 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-03-28 13:08:21 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-03-28 13:08:21 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2025-03-28 13:08:21 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.31]
+2025-03-28 13:08:21 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-03-28 13:08:21 [main] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2650 ms
+2025-03-28 13:08:22 [main] WARN  org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Failed to initialize dependency 'dataSourceScriptDatabaseInitializer' of LoadTimeWeaverAware bean 'entityManagerFactory': Error creating bean with name 'dataSourceScriptDatabaseInitializer' defined in class path resource [org/springframework/boot/autoconfigure/sql/init/DataSourceInitializationConfiguration.class]: Unsatisfied dependency expressed through method 'dataSourceScriptDatabaseInitializer' parameter 0: Error creating bean with name 'dataSource' defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Hikari.class]: Failed to instantiate [com.zaxxer.hikari.HikariDataSource]: Factory method 'dataSource' threw exception with message: Failed to determine a suitable driver class
+2025-03-28 13:08:22 [main] INFO  org.apache.catalina.core.StandardService - Stopping service [Tomcat]
+2025-03-28 13:08:22 [main] INFO  org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-03-28 13:08:22 [main] ERROR org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Failed to configure a DataSource: 'url' attribute is not specified and no embedded datasource could be configured.
+
+Reason: Failed to determine a suitable driver class
+
+
+Action:
+
+Consider the following:
+	If you want an embedded database (H2, HSQL or Derby), please put it on the classpath.
+	If you have database settings to be loaded from a particular profile you may need to activate it (no profiles are currently active).
+
+2025-03-28 13:13:49 [main] INFO  com.backend.demo.DemoApplication - Starting DemoApplication using Java 23.0.2 with PID 4208 (C:\Users\Anmol Sinha\Desktop\demo\target\classes started by Anmol Sinha in C:\Users\Anmol Sinha\Desktop\demo)
+2025-03-28 13:13:49 [main] INFO  com.backend.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+2025-03-28 13:13:50 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-03-28 13:13:50 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-03-28 13:13:50 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 18 ms. Found 0 JPA repository interfaces.
+2025-03-28 13:13:51 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-03-28 13:13:51 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-03-28 13:13:51 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 3 ms. Found 0 Redis repository interfaces.
+2025-03-28 13:13:52 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-03-28 13:13:52 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-03-28 13:13:52 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2025-03-28 13:13:52 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.31]
+2025-03-28 13:13:52 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-03-28 13:13:52 [main] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2440 ms
+2025-03-28 13:13:52 [main] WARN  org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Failed to initialize dependency 'dataSourceScriptDatabaseInitializer' of LoadTimeWeaverAware bean 'entityManagerFactory': Error creating bean with name 'dataSourceScriptDatabaseInitializer' defined in class path resource [org/springframework/boot/autoconfigure/sql/init/DataSourceInitializationConfiguration.class]: Unsatisfied dependency expressed through method 'dataSourceScriptDatabaseInitializer' parameter 0: Error creating bean with name 'dataSource' defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Hikari.class]: Failed to instantiate [com.zaxxer.hikari.HikariDataSource]: Factory method 'dataSource' threw exception with message: Failed to determine a suitable driver class
+2025-03-28 13:13:52 [main] INFO  org.apache.catalina.core.StandardService - Stopping service [Tomcat]
+2025-03-28 13:13:52 [main] INFO  org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-03-28 13:13:52 [main] ERROR org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Failed to configure a DataSource: 'url' attribute is not specified and no embedded datasource could be configured.
+
+Reason: Failed to determine a suitable driver class
+
+
+Action:
+
+Consider the following:
+	If you want an embedded database (H2, HSQL or Derby), please put it on the classpath.
+	If you have database settings to be loaded from a particular profile you may need to activate it (no profiles are currently active).
+
+2025-03-28 13:16:55 [main] INFO  com.backend.demo.DemoApplication - Starting DemoApplication using Java 23.0.2 with PID 16032 (C:\Users\Anmol Sinha\Desktop\demo\target\classes started by Anmol Sinha in C:\Users\Anmol Sinha\Desktop\demo)
+2025-03-28 13:16:55 [main] INFO  com.backend.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+2025-03-28 13:16:56 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-03-28 13:16:56 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-03-28 13:16:56 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 18 ms. Found 0 JPA repository interfaces.
+2025-03-28 13:16:56 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-03-28 13:16:56 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-03-28 13:16:56 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 3 ms. Found 0 Redis repository interfaces.
+2025-03-28 13:16:57 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-03-28 13:16:57 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-03-28 13:16:57 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2025-03-28 13:16:57 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.31]
+2025-03-28 13:16:57 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-03-28 13:16:57 [main] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2225 ms
+2025-03-28 13:16:58 [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-03-28 13:16:58 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.3.Final
+2025-03-28 13:16:58 [main] INFO  org.hibernate.cache.internal.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-03-28 13:16:58 [main] INFO  org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-03-28 13:16:59 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-03-28 13:16:59 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2f0e7fa8
+2025-03-28 13:16:59 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-03-28 13:16:59 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-03-28 13:17:00 [main] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-03-28 13:17:00 [main] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-03-28 13:17:00 [main] WARN  org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'redisConfig': Injection of autowired dependencies failed
+2025-03-28 13:17:00 [main] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-03-28 13:17:00 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-03-28 13:17:01 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-03-28 13:17:01 [main] INFO  org.apache.catalina.core.StandardService - Stopping service [Tomcat]
+2025-03-28 13:17:01 [main] INFO  org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-03-28 13:17:01 [main] ERROR org.springframework.boot.SpringApplication - Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'redisConfig': Injection of autowired dependencies failed
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:515) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1439) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:599) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:975) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:971) ~[spring-context-6.1.14.jar:6.1.14]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:625) ~[spring-context-6.1.14.jar:6.1.14]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.3.5.jar:3.3.5]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754) [spring-boot-3.3.5.jar:3.3.5]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456) [spring-boot-3.3.5.jar:3.3.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:335) [spring-boot-3.3.5.jar:3.3.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1363) [spring-boot-3.3.5.jar:3.3.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1352) [spring-boot-3.3.5.jar:3.3.5]
+	at com.backend.demo.DemoApplication.main(DemoApplication.java:12) [classes/:?]
+Caused by: java.lang.IllegalArgumentException: Could not resolve placeholder 'spring.redis.host' in value "${spring.redis.host}"
+	at org.springframework.util.PropertyPlaceholderHelper.parseStringValue(PropertyPlaceholderHelper.java:180) ~[spring-core-6.1.14.jar:6.1.14]
+	at org.springframework.util.PropertyPlaceholderHelper.replacePlaceholders(PropertyPlaceholderHelper.java:126) ~[spring-core-6.1.14.jar:6.1.14]
+	at org.springframework.core.env.AbstractPropertyResolver.doResolvePlaceholders(AbstractPropertyResolver.java:239) ~[spring-core-6.1.14.jar:6.1.14]
+	at org.springframework.core.env.AbstractPropertyResolver.resolveRequiredPlaceholders(AbstractPropertyResolver.java:210) ~[spring-core-6.1.14.jar:6.1.14]
+	at org.springframework.context.support.PropertySourcesPlaceholderConfigurer.lambda$processProperties$0(PropertySourcesPlaceholderConfigurer.java:200) ~[spring-context-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.resolveEmbeddedValue(AbstractBeanFactory.java:964) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1374) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1353) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:785) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:768) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:145) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:509) ~[spring-beans-6.1.14.jar:6.1.14]
+	... 17 more
+2025-03-28 13:18:33 [main] INFO  com.backend.demo.DemoApplication - Starting DemoApplication using Java 23.0.2 with PID 22264 (C:\Users\Anmol Sinha\Desktop\demo\target\classes started by Anmol Sinha in C:\Users\Anmol Sinha\Desktop\demo)
+2025-03-28 13:18:33 [main] INFO  com.backend.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+2025-03-28 13:18:34 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-03-28 13:18:34 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 19 ms. Found 0 JPA repository interfaces.
+2025-03-28 13:18:35 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-03-28 13:18:35 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-03-28 13:18:35 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2025-03-28 13:18:35 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.31]
+2025-03-28 13:18:35 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-03-28 13:18:35 [main] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2075 ms
+2025-03-28 13:18:36 [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-03-28 13:18:36 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.3.Final
+2025-03-28 13:18:36 [main] INFO  org.hibernate.cache.internal.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-03-28 13:18:36 [main] INFO  org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-03-28 13:18:36 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-03-28 13:18:37 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@4119346d
+2025-03-28 13:18:37 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-03-28 13:18:37 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-03-28 13:18:38 [main] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-03-28 13:18:38 [main] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-03-28 13:18:38 [main] INFO  com.backend.demo.config.RabbitMQConfig - Configuring Jackson2JsonMessageConverter for RabbitMQ
+2025-03-28 13:18:38 [main] INFO  com.backend.demo.config.RabbitMQConfig - Creating Direct Exchange: complaint_exchange
+2025-03-28 13:18:38 [main] INFO  com.backend.demo.config.RabbitMQConfig - Creating Queue: infrastructure_queue
+2025-03-28 13:18:38 [main] INFO  com.backend.demo.config.RabbitMQConfig - Creating Queue: electricity_queue
+2025-03-28 13:18:38 [main] INFO  com.backend.demo.config.RabbitMQConfig - Creating Queue: legal_queue
+2025-03-28 13:18:38 [main] INFO  com.backend.demo.config.RabbitMQConfig - Binding Queue infrastructure_queue to Exchange complaint_exchange with Routing Key complaint.infrastructure
+2025-03-28 13:18:38 [main] INFO  com.backend.demo.config.RabbitMQConfig - Binding Queue electricity_queue to Exchange complaint_exchange with Routing Key complaint.electricity
+2025-03-28 13:18:38 [main] INFO  com.backend.demo.config.RabbitMQConfig - Binding Queue legal_queue to Exchange complaint_exchange with Routing Key complaint.legal
+2025-03-28 13:18:38 [main] WARN  org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-03-28 13:18:39 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-03-28 13:18:39 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2025-03-28 13:18:39 [main] INFO  com.backend.demo.DemoApplication - Started DemoApplication in 6.457 seconds (process running for 8.142)
+2025-03-28 13:18:39 [main] INFO  com.backend.demo.DemoApplication - Application started...
+2025-03-28 13:22:36 [http-nio-8080-exec-2] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-03-28 13:22:36 [http-nio-8080-exec-2] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-03-28 13:22:36 [http-nio-8080-exec-2] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 41 ms
+2025-03-28 13:22:36 [http-nio-8080-exec-1] INFO  com.backend.demo.controller.ComplaintController - Received complaint creation request: Complaint{id='3', name='Anmol Sinha', issueType='electricity', description='Checking everything.'}
+2025-03-28 13:22:36 [http-nio-8080-exec-1] INFO  com.backend.demo.service.RabbitMQProducer - Sending complaint to RabbitMQ with routing key complaint.electricity: Complaint{id='3', name='Anmol Sinha', issueType='electricity', description='Checking everything.'}
+2025-03-28 13:22:36 [http-nio-8080-exec-1] INFO  org.springframework.amqp.rabbit.connection.CachingConnectionFactory - Attempting to connect to: [10.200.208.98:30280]
+2025-03-28 13:22:36 [http-nio-8080-exec-1] INFO  org.springframework.amqp.rabbit.connection.CachingConnectionFactory - Created new connection: rabbitConnectionFactory#739be7ec:0/SimpleConnection@2340a1f7 [delegate=amqp://user@10.200.208.98:30280/, localPort=56886]
+2025-03-28 13:22:36 [http-nio-8080-exec-1] INFO  com.backend.demo.controller.ComplaintController - Complaint submitted successfully!
+2025-03-28 13:24:58 [http-nio-8080-exec-9] INFO  com.backend.demo.controller.ComplaintController - Received complaint creation request: Complaint{id='4', name='The Anmol', issueType='legal', description='wejf.'}
+2025-03-28 13:24:58 [http-nio-8080-exec-9] INFO  com.backend.demo.service.RabbitMQProducer - Sending complaint to RabbitMQ with routing key complaint.legal: Complaint{id='4', name='The Anmol', issueType='legal', description='wejf.'}
+2025-03-28 13:24:58 [http-nio-8080-exec-9] INFO  com.backend.demo.controller.ComplaintController - Complaint submitted successfully!
+2025-03-28 13:30:11 [AMQP Connection 10.200.208.98:30280] WARN  com.rabbitmq.client.impl.ForgivingExceptionHandler - An unexpected connection driver error occurred (Exception message: Connection reset)
+2025-03-28 14:24:25 [HikariPool-1 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=54m18s317ms281µs800ns).
+2025-03-28 14:59:21 [HikariPool-1 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=5m55s635ms217µs600ns).
+2025-03-28 15:00:20 [SpringApplicationShutdownHook] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-03-28 15:00:20 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-03-28 15:00:20 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-03-28 15:00:23 [main] INFO  com.backend.demo.DemoApplication - Starting DemoApplication using Java 23.0.2 with PID 25096 (C:\Users\Anmol Sinha\Desktop\demo\target\classes started by Anmol Sinha in C:\Users\Anmol Sinha\Desktop\demo)
+2025-03-28 15:00:23 [main] INFO  com.backend.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+2025-03-28 15:00:24 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-03-28 15:00:24 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 17 ms. Found 0 JPA repository interfaces.
+2025-03-28 15:00:25 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-03-28 15:00:25 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-03-28 15:00:25 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2025-03-28 15:00:25 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.31]
+2025-03-28 15:00:25 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-03-28 15:00:25 [main] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1427 ms
+2025-03-28 15:00:25 [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-03-28 15:00:25 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.3.Final
+2025-03-28 15:00:25 [main] INFO  org.hibernate.cache.internal.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-03-28 15:00:26 [main] INFO  org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-03-28 15:00:26 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-03-28 15:00:26 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@4119346d
+2025-03-28 15:00:26 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-03-28 15:00:26 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-03-28 15:00:27 [main] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-03-28 15:00:27 [main] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-03-28 15:00:27 [main] INFO  com.backend.demo.config.RabbitMQConfig - Configuring Jackson2JsonMessageConverter for RabbitMQ
+2025-03-28 15:00:27 [main] INFO  com.backend.demo.config.RabbitMQConfig - Creating Direct Exchange: complaint_exchange
+2025-03-28 15:00:27 [main] INFO  com.backend.demo.config.RabbitMQConfig - Creating Queue: infrastructure_queue
+2025-03-28 15:00:27 [main] INFO  com.backend.demo.config.RabbitMQConfig - Creating Queue: electricity_queue
+2025-03-28 15:00:27 [main] INFO  com.backend.demo.config.RabbitMQConfig - Creating Queue: legal_queue
+2025-03-28 15:00:27 [main] INFO  com.backend.demo.config.RabbitMQConfig - Binding Queue infrastructure_queue to Exchange complaint_exchange with Routing Key complaint.infrastructure
+2025-03-28 15:00:27 [main] INFO  com.backend.demo.config.RabbitMQConfig - Binding Queue electricity_queue to Exchange complaint_exchange with Routing Key complaint.electricity
+2025-03-28 15:00:27 [main] INFO  com.backend.demo.config.RabbitMQConfig - Binding Queue legal_queue to Exchange complaint_exchange with Routing Key complaint.legal
+2025-03-28 15:00:27 [main] WARN  org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-03-28 15:00:28 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-03-28 15:00:28 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2025-03-28 15:00:28 [main] INFO  com.backend.demo.DemoApplication - Started DemoApplication in 4.58 seconds (process running for 5.702)
+2025-03-28 15:00:28 [main] INFO  com.backend.demo.DemoApplication - Application started...
+2025-03-28 15:05:14 [http-nio-8080-exec-1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-03-28 15:05:14 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-03-28 15:05:14 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 36 ms
+2025-03-28 15:05:15 [http-nio-8080-exec-3] INFO  com.backend.demo.controller.ComplaintController - Received complaint creation request: Complaint{id='5', name='Prem', issueType='infrastructure', description='Infrastructural issue.'}
+2025-03-28 15:05:15 [http-nio-8080-exec-3] INFO  com.backend.demo.service.RabbitMQProducer - Sending complaint to RabbitMQ with routing key complaint.infrastructure: Complaint{id='5', name='Prem', issueType='infrastructure', description='Infrastructural issue.'}
+2025-03-28 15:05:15 [http-nio-8080-exec-3] INFO  org.springframework.amqp.rabbit.connection.CachingConnectionFactory - Attempting to connect to: [10.200.208.98:30280]
+2025-03-28 15:05:15 [http-nio-8080-exec-3] INFO  org.springframework.amqp.rabbit.connection.CachingConnectionFactory - Created new connection: rabbitConnectionFactory#2a0881f1:0/SimpleConnection@4736599d [delegate=amqp://user@10.200.208.98:30280/, localPort=58647]
+2025-03-28 15:05:15 [http-nio-8080-exec-3] INFO  com.backend.demo.controller.ComplaintController - Complaint submitted successfully!
+2025-03-28 15:30:02 [SpringApplicationShutdownHook] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-03-28 15:30:02 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-03-28 15:30:02 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-03-28 15:34:19 [main] INFO  com.backend.demo.DemoApplication - Starting DemoApplication using Java 23.0.2 with PID 23292 (C:\Users\Anmol Sinha\Desktop\demo\target\classes started by Anmol Sinha in C:\Users\Anmol Sinha\Desktop\demo)
+2025-03-28 15:34:19 [main] INFO  com.backend.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+2025-03-28 15:34:20 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-03-28 15:34:20 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-03-28 15:34:20 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 13 ms. Found 0 JPA repository interfaces.
+2025-03-28 15:34:20 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-03-28 15:34:20 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-03-28 15:34:20 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 2 ms. Found 0 Redis repository interfaces.
+2025-03-28 15:34:21 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-03-28 15:34:21 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-03-28 15:34:21 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2025-03-28 15:34:21 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.31]
+2025-03-28 15:34:21 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-03-28 15:34:21 [main] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1801 ms
+2025-03-28 15:34:21 [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-03-28 15:34:21 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.3.Final
+2025-03-28 15:34:21 [main] INFO  org.hibernate.cache.internal.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-03-28 15:34:22 [main] INFO  org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-03-28 15:34:22 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-03-28 15:34:22 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2f0e7fa8
+2025-03-28 15:34:22 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-03-28 15:34:22 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-03-28 15:34:23 [main] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-03-28 15:34:23 [main] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-03-28 15:34:23 [main] INFO  com.backend.demo.config.RabbitMQConfig - Configuring Jackson2JsonMessageConverter for RabbitMQ
+2025-03-28 15:34:23 [main] INFO  com.backend.demo.config.RabbitMQConfig - Creating Direct Exchange: complaint_exchange
+2025-03-28 15:34:23 [main] INFO  com.backend.demo.config.RabbitMQConfig - Creating Queue: infrastructure_queue
+2025-03-28 15:34:23 [main] INFO  com.backend.demo.config.RabbitMQConfig - Creating Queue: electricity_queue
+2025-03-28 15:34:23 [main] INFO  com.backend.demo.config.RabbitMQConfig - Creating Queue: legal_queue
+2025-03-28 15:34:23 [main] INFO  com.backend.demo.config.RabbitMQConfig - Binding Queue infrastructure_queue to Exchange complaint_exchange with Routing Key complaint.infrastructure
+2025-03-28 15:34:23 [main] INFO  com.backend.demo.config.RabbitMQConfig - Binding Queue electricity_queue to Exchange complaint_exchange with Routing Key complaint.electricity
+2025-03-28 15:34:23 [main] INFO  com.backend.demo.config.RabbitMQConfig - Binding Queue legal_queue to Exchange complaint_exchange with Routing Key complaint.legal
+2025-03-28 15:34:23 [main] INFO  com.backend.demo.config.RedisConfig - Initializing Redis Connection Factory with Host: 10.200.208.98 and Port: 32549
+2025-03-28 15:34:24 [main] INFO  com.backend.demo.config.RedisConfig - Configuring Redis Template...
+2025-03-28 15:34:24 [main] INFO  com.backend.demo.config.RedisConfig - Redis Template successfully initialized.
+2025-03-28 15:34:24 [main] WARN  org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-03-28 15:34:24 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-03-28 15:34:24 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2025-03-28 15:34:24 [main] INFO  com.backend.demo.DemoApplication - Started DemoApplication in 5.157 seconds (process running for 6.38)
+2025-03-28 15:34:24 [main] INFO  com.backend.demo.DemoApplication - Application started...
+2025-03-28 15:35:39 [http-nio-8080-exec-1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-03-28 15:35:39 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-03-28 15:35:39 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 7 ms
+2025-03-28 15:35:39 [http-nio-8080-exec-2] INFO  com.backend.demo.controller.ComplaintController - Received complaint creation request: Complaint{id='6', name='Ayush', issueType='legal', description='Administrative issues.'}
+2025-03-28 15:35:39 [http-nio-8080-exec-2] INFO  com.backend.demo.service.RabbitMQProducer - Sending complaint to RabbitMQ with routing key complaint.legal: Complaint{id='6', name='Ayush', issueType='legal', description='Administrative issues.'}
+2025-03-28 15:35:40 [http-nio-8080-exec-2] INFO  org.springframework.amqp.rabbit.connection.CachingConnectionFactory - Attempting to connect to: [10.200.208.98:30280]
+2025-03-28 15:35:40 [http-nio-8080-exec-2] INFO  org.springframework.amqp.rabbit.connection.CachingConnectionFactory - Created new connection: rabbitConnectionFactory#61627c9d:0/SimpleConnection@371b7256 [delegate=amqp://user@10.200.208.98:30280/, localPort=59609]
+2025-03-28 15:35:40 [http-nio-8080-exec-2] INFO  com.backend.demo.controller.ComplaintController - Complaint submitted successfully!
+2025-03-28 15:36:28 [http-nio-8080-exec-4] INFO  com.backend.demo.controller.ComplaintController - Received complaint creation request: Complaint{id='7', name='Rahul', issueType='electricity', description='Water supply.'}
+2025-03-28 15:36:28 [http-nio-8080-exec-4] INFO  com.backend.demo.service.RabbitMQProducer - Sending complaint to RabbitMQ with routing key complaint.electricity: Complaint{id='7', name='Rahul', issueType='electricity', description='Water supply.'}
+2025-03-28 15:36:28 [http-nio-8080-exec-4] INFO  com.backend.demo.controller.ComplaintController - Complaint submitted successfully!
+2025-03-28 16:00:18 [http-nio-8080-exec-6] INFO  com.backend.demo.controller.ComplaintController - Received complaint creation request: Complaint{id='8', name='hemant', issueType='legal', description='legal'}
+2025-03-28 16:00:18 [http-nio-8080-exec-6] INFO  com.backend.demo.service.RabbitMQProducer - Sending complaint to RabbitMQ with routing key complaint.legal: Complaint{id='8', name='hemant', issueType='legal', description='legal'}
+2025-03-28 16:00:18 [http-nio-8080-exec-6] INFO  com.backend.demo.controller.ComplaintController - Complaint submitted successfully!
+2025-03-28 16:00:34 [http-nio-8080-exec-7] INFO  com.backend.demo.controller.ComplaintController - Received complaint creation request: Complaint{id='9', name='virat', issueType='electricity', description='water supply issues.'}
+2025-03-28 16:00:34 [http-nio-8080-exec-7] INFO  com.backend.demo.service.RabbitMQProducer - Sending complaint to RabbitMQ with routing key complaint.electricity: Complaint{id='9', name='virat', issueType='electricity', description='water supply issues.'}
+2025-03-28 16:00:34 [http-nio-8080-exec-7] INFO  com.backend.demo.controller.ComplaintController - Complaint submitted successfully!
+2025-03-28 16:12:52 [SpringApplicationShutdownHook] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-03-28 16:12:52 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-03-28 16:12:52 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-03-28 16:13:00 [main] INFO  com.backend.demo.DemoApplication - Starting DemoApplication using Java 23.0.2 with PID 14840 (C:\Users\Anmol Sinha\Desktop\demo\target\classes started by Anmol Sinha in C:\Users\Anmol Sinha\Desktop\demo)
+2025-03-28 16:13:00 [main] INFO  com.backend.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+2025-03-28 16:13:02 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-03-28 16:13:02 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-03-28 16:13:02 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 17 ms. Found 0 JPA repository interfaces.
+2025-03-28 16:13:02 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-03-28 16:13:02 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-03-28 16:13:02 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 5 ms. Found 0 Redis repository interfaces.
+2025-03-28 16:13:03 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-03-28 16:13:03 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-03-28 16:13:03 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2025-03-28 16:13:03 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.31]
+2025-03-28 16:13:03 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-03-28 16:13:03 [main] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3396 ms
+2025-03-28 16:13:04 [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-03-28 16:13:04 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.3.Final
+2025-03-28 16:13:04 [main] INFO  org.hibernate.cache.internal.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-03-28 16:13:04 [main] INFO  org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-03-28 16:13:04 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-03-28 16:13:06 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@4ae2c01b
+2025-03-28 16:13:06 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-03-28 16:13:06 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-03-28 16:13:07 [main] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-03-28 16:13:07 [main] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-03-28 16:13:08 [main] INFO  com.backend.demo.config.RabbitMQConfig - Configuring Jackson2JsonMessageConverter for RabbitMQ
+2025-03-28 16:13:08 [main] INFO  com.backend.demo.config.RedisConfig - Initializing Redis Connection Factory with Host: 10.200.208.98 and Port: 32549
+2025-03-28 16:13:08 [main] INFO  com.backend.demo.config.RedisConfig - Configuring Redis Template...
+2025-03-28 16:13:08 [main] INFO  com.backend.demo.config.RedisConfig - Redis Template successfully initialized.
+2025-03-28 16:13:08 [main] INFO  com.backend.demo.config.RabbitMQConfig - Creating Direct Exchange: complaint_exchange
+2025-03-28 16:13:08 [main] INFO  com.backend.demo.config.RabbitMQConfig - Creating Queue: infrastructure_queue
+2025-03-28 16:13:08 [main] INFO  com.backend.demo.config.RabbitMQConfig - Creating Queue: electricity_queue
+2025-03-28 16:13:08 [main] INFO  com.backend.demo.config.RabbitMQConfig - Creating Queue: legal_queue
+2025-03-28 16:13:08 [main] INFO  com.backend.demo.config.RabbitMQConfig - Binding Queue infrastructure_queue to Exchange complaint_exchange with Routing Key complaint.infrastructure
+2025-03-28 16:13:08 [main] INFO  com.backend.demo.config.RabbitMQConfig - Binding Queue electricity_queue to Exchange complaint_exchange with Routing Key complaint.electricity
+2025-03-28 16:13:08 [main] INFO  com.backend.demo.config.RabbitMQConfig - Binding Queue legal_queue to Exchange complaint_exchange with Routing Key complaint.legal
+2025-03-28 16:13:08 [main] WARN  org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-03-28 16:13:09 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-03-28 16:13:09 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2025-03-28 16:13:09 [main] INFO  com.backend.demo.DemoApplication - Started DemoApplication in 10.439 seconds (process running for 12.456)
+2025-03-28 16:13:09 [main] INFO  com.backend.demo.DemoApplication - Application started...
+2025-03-28 16:13:33 [http-nio-8080-exec-1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-03-28 16:13:33 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-03-28 16:13:33 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2025-03-28 16:13:33 [http-nio-8080-exec-1] INFO  com.backend.demo.controller.ComplaintController - Fetching top complaints.
+2025-03-28 16:13:33 [http-nio-8080-exec-1] INFO  com.backend.demo.service.RedisService - Fetching top complaints from Redis.
+2025-03-28 16:13:34 [http-nio-8080-exec-1] ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.springframework.data.redis.serializer.SerializationException: Could not read JSON:Failed to parse type 'com.example.consumer.entity.Complaint' (remaining: ''): Cannot locate class 'com.example.consumer.entity.Complaint', problem: com.example.consumer.entity.Complaint ] with root cause
+java.lang.IllegalArgumentException: Failed to parse type 'com.example.consumer.entity.Complaint' (remaining: ''): Cannot locate class 'com.example.consumer.entity.Complaint', problem: com.example.consumer.entity.Complaint
+	at com.fasterxml.jackson.databind.type.TypeParser._problem(TypeParser.java:119) ~[jackson-databind-2.17.2.jar:2.17.2]
+	at com.fasterxml.jackson.databind.type.TypeParser.findClass(TypeParser.java:113) ~[jackson-databind-2.17.2.jar:2.17.2]
+	at com.fasterxml.jackson.databind.type.TypeParser.parseType(TypeParser.java:71) ~[jackson-databind-2.17.2.jar:2.17.2]
+	at com.fasterxml.jackson.databind.type.TypeParser.parse(TypeParser.java:57) ~[jackson-databind-2.17.2.jar:2.17.2]
+	at com.fasterxml.jackson.databind.type.TypeFactory.constructFromCanonical(TypeFactory.java:687) ~[jackson-databind-2.17.2.jar:2.17.2]
+	at org.springframework.data.redis.serializer.GenericJackson2JsonRedisSerializer$TypeResolver.resolveType(GenericJackson2JsonRedisSerializer.java:365) ~[spring-data-redis-3.3.5.jar:3.3.5]
+	at org.springframework.data.redis.serializer.GenericJackson2JsonRedisSerializer.resolveType(GenericJackson2JsonRedisSerializer.java:335) ~[spring-data-redis-3.3.5.jar:3.3.5]
+	at org.springframework.data.redis.serializer.GenericJackson2JsonRedisSerializer.deserialize(GenericJackson2JsonRedisSerializer.java:303) ~[spring-data-redis-3.3.5.jar:3.3.5]
+	at org.springframework.data.redis.serializer.GenericJackson2JsonRedisSerializer.deserialize(GenericJackson2JsonRedisSerializer.java:275) ~[spring-data-redis-3.3.5.jar:3.3.5]
+	at org.springframework.data.redis.serializer.SerializationUtils.deserializeValues(SerializationUtils.java:54) ~[spring-data-redis-3.3.5.jar:3.3.5]
+	at org.springframework.data.redis.serializer.SerializationUtils.deserialize(SerializationUtils.java:68) ~[spring-data-redis-3.3.5.jar:3.3.5]
+	at org.springframework.data.redis.core.AbstractOperations.deserializeValues(AbstractOperations.java:286) ~[spring-data-redis-3.3.5.jar:3.3.5]
+	at org.springframework.data.redis.core.DefaultListOperations.lambda$range$9(DefaultListOperations.java:159) ~[spring-data-redis-3.3.5.jar:3.3.5]
+	at org.springframework.data.redis.core.RedisTemplate.execute(RedisTemplate.java:411) ~[spring-data-redis-3.3.5.jar:3.3.5]
+	at org.springframework.data.redis.core.RedisTemplate.execute(RedisTemplate.java:378) ~[spring-data-redis-3.3.5.jar:3.3.5]
+	at org.springframework.data.redis.core.AbstractOperations.execute(AbstractOperations.java:97) ~[spring-data-redis-3.3.5.jar:3.3.5]
+	at org.springframework.data.redis.core.DefaultListOperations.range(DefaultListOperations.java:159) ~[spring-data-redis-3.3.5.jar:3.3.5]
+	at com.backend.demo.service.RedisService.getTopComplaints(RedisService.java:39) ~[classes/:?]
+	at com.backend.demo.controller.ComplaintController.getTopComplaints(ComplaintController.java:36) ~[classes/:?]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[?:?]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:255) ~[spring-web-6.1.14.jar:6.1.14]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:188) ~[spring-web-6.1.14.jar:6.1.14]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118) ~[spring-webmvc-6.1.14.jar:6.1.14]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:926) ~[spring-webmvc-6.1.14.jar:6.1.14]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:831) ~[spring-webmvc-6.1.14.jar:6.1.14]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-6.1.14.jar:6.1.14]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089) ~[spring-webmvc-6.1.14.jar:6.1.14]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979) ~[spring-webmvc-6.1.14.jar:6.1.14]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014) ~[spring-webmvc-6.1.14.jar:6.1.14]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903) ~[spring-webmvc-6.1.14.jar:6.1.14]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564) ~[tomcat-embed-core-10.1.31.jar:6.0]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.1.14.jar:6.1.14]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658) ~[tomcat-embed-core-10.1.31.jar:6.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-10.1.31.jar:10.1.31]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.1.14.jar:6.1.14]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.14.jar:6.1.14]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.1.14.jar:6.1.14]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.14.jar:6.1.14]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.1.14.jar:6.1.14]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.14.jar:6.1.14]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:384) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:905) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at java.base/java.lang.Thread.run(Thread.java:1575) [?:?]
+2025-03-28 16:13:52 [http-nio-8080-exec-4] INFO  com.backend.demo.controller.ComplaintController - Received complaint creation request: Complaint{id='10', name='Tushar', issueType='electricity', description='Electricity'}
+2025-03-28 16:13:52 [http-nio-8080-exec-4] INFO  com.backend.demo.service.RabbitMQProducer - Sending complaint to RabbitMQ with routing key complaint.electricity: Complaint{id='10', name='Tushar', issueType='electricity', description='Electricity'}
+2025-03-28 16:13:52 [http-nio-8080-exec-4] INFO  org.springframework.amqp.rabbit.connection.CachingConnectionFactory - Attempting to connect to: [10.200.208.98:30280]
+2025-03-28 16:13:52 [http-nio-8080-exec-4] INFO  org.springframework.amqp.rabbit.connection.CachingConnectionFactory - Created new connection: rabbitConnectionFactory#2512155e:0/SimpleConnection@b0244bd [delegate=amqp://user@10.200.208.98:30280/, localPort=60629]
+2025-03-28 16:13:52 [http-nio-8080-exec-4] INFO  com.backend.demo.controller.ComplaintController - Complaint submitted successfully!
+2025-03-28 16:22:44 [http-nio-8080-exec-3] INFO  com.backend.demo.controller.ComplaintController - Fetching top complaints.
+2025-03-28 16:22:44 [http-nio-8080-exec-3] INFO  com.backend.demo.service.RedisService - Fetching top complaints from Redis.
+2025-03-28 16:22:44 [http-nio-8080-exec-3] ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.springframework.data.redis.serializer.SerializationException: Could not read JSON:Failed to parse type 'com.example.consumer.entity.Complaint' (remaining: ''): Cannot locate class 'com.example.consumer.entity.Complaint', problem: com.example.consumer.entity.Complaint ] with root cause
+java.lang.IllegalArgumentException: Failed to parse type 'com.example.consumer.entity.Complaint' (remaining: ''): Cannot locate class 'com.example.consumer.entity.Complaint', problem: com.example.consumer.entity.Complaint
+	at com.fasterxml.jackson.databind.type.TypeParser._problem(TypeParser.java:119) ~[jackson-databind-2.17.2.jar:2.17.2]
+	at com.fasterxml.jackson.databind.type.TypeParser.findClass(TypeParser.java:113) ~[jackson-databind-2.17.2.jar:2.17.2]
+	at com.fasterxml.jackson.databind.type.TypeParser.parseType(TypeParser.java:71) ~[jackson-databind-2.17.2.jar:2.17.2]
+	at com.fasterxml.jackson.databind.type.TypeParser.parse(TypeParser.java:57) ~[jackson-databind-2.17.2.jar:2.17.2]
+	at com.fasterxml.jackson.databind.type.TypeFactory.constructFromCanonical(TypeFactory.java:687) ~[jackson-databind-2.17.2.jar:2.17.2]
+	at org.springframework.data.redis.serializer.GenericJackson2JsonRedisSerializer$TypeResolver.resolveType(GenericJackson2JsonRedisSerializer.java:365) ~[spring-data-redis-3.3.5.jar:3.3.5]
+	at org.springframework.data.redis.serializer.GenericJackson2JsonRedisSerializer.resolveType(GenericJackson2JsonRedisSerializer.java:335) ~[spring-data-redis-3.3.5.jar:3.3.5]
+	at org.springframework.data.redis.serializer.GenericJackson2JsonRedisSerializer.deserialize(GenericJackson2JsonRedisSerializer.java:303) ~[spring-data-redis-3.3.5.jar:3.3.5]
+	at org.springframework.data.redis.serializer.GenericJackson2JsonRedisSerializer.deserialize(GenericJackson2JsonRedisSerializer.java:275) ~[spring-data-redis-3.3.5.jar:3.3.5]
+	at org.springframework.data.redis.serializer.SerializationUtils.deserializeValues(SerializationUtils.java:54) ~[spring-data-redis-3.3.5.jar:3.3.5]
+	at org.springframework.data.redis.serializer.SerializationUtils.deserialize(SerializationUtils.java:68) ~[spring-data-redis-3.3.5.jar:3.3.5]
+	at org.springframework.data.redis.core.AbstractOperations.deserializeValues(AbstractOperations.java:286) ~[spring-data-redis-3.3.5.jar:3.3.5]
+	at org.springframework.data.redis.core.DefaultListOperations.lambda$range$9(DefaultListOperations.java:159) ~[spring-data-redis-3.3.5.jar:3.3.5]
+	at org.springframework.data.redis.core.RedisTemplate.execute(RedisTemplate.java:411) ~[spring-data-redis-3.3.5.jar:3.3.5]
+	at org.springframework.data.redis.core.RedisTemplate.execute(RedisTemplate.java:378) ~[spring-data-redis-3.3.5.jar:3.3.5]
+	at org.springframework.data.redis.core.AbstractOperations.execute(AbstractOperations.java:97) ~[spring-data-redis-3.3.5.jar:3.3.5]
+	at org.springframework.data.redis.core.DefaultListOperations.range(DefaultListOperations.java:159) ~[spring-data-redis-3.3.5.jar:3.3.5]
+	at com.backend.demo.service.RedisService.getTopComplaints(RedisService.java:39) ~[classes/:?]
+	at com.backend.demo.controller.ComplaintController.getTopComplaints(ComplaintController.java:36) ~[classes/:?]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[?:?]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:255) ~[spring-web-6.1.14.jar:6.1.14]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:188) ~[spring-web-6.1.14.jar:6.1.14]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118) ~[spring-webmvc-6.1.14.jar:6.1.14]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:926) ~[spring-webmvc-6.1.14.jar:6.1.14]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:831) ~[spring-webmvc-6.1.14.jar:6.1.14]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-6.1.14.jar:6.1.14]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089) ~[spring-webmvc-6.1.14.jar:6.1.14]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979) ~[spring-webmvc-6.1.14.jar:6.1.14]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014) ~[spring-webmvc-6.1.14.jar:6.1.14]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903) ~[spring-webmvc-6.1.14.jar:6.1.14]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564) ~[tomcat-embed-core-10.1.31.jar:6.0]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.1.14.jar:6.1.14]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658) ~[tomcat-embed-core-10.1.31.jar:6.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-10.1.31.jar:10.1.31]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.1.14.jar:6.1.14]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.14.jar:6.1.14]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.1.14.jar:6.1.14]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.14.jar:6.1.14]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.1.14.jar:6.1.14]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.14.jar:6.1.14]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:384) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:905) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at java.base/java.lang.Thread.run(Thread.java:1575) [?:?]
+2025-03-28 16:23:44 [SpringApplicationShutdownHook] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-03-28 16:23:44 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-03-28 16:23:44 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-03-28 16:23:51 [main] INFO  com.backend.demo.DemoApplication - Starting DemoApplication using Java 23.0.2 with PID 7728 (C:\Users\Anmol Sinha\Desktop\demo\target\classes started by Anmol Sinha in C:\Users\Anmol Sinha\Desktop\demo)
+2025-03-28 16:23:51 [main] INFO  com.backend.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+2025-03-28 16:23:52 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-03-28 16:23:52 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-03-28 16:23:52 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 30 ms. Found 0 JPA repository interfaces.
+2025-03-28 16:23:52 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-03-28 16:23:52 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-03-28 16:23:52 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 7 ms. Found 0 Redis repository interfaces.
+2025-03-28 16:23:54 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-03-28 16:23:54 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-03-28 16:23:54 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2025-03-28 16:23:54 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.31]
+2025-03-28 16:23:54 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-03-28 16:23:54 [main] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2925 ms
+2025-03-28 16:23:54 [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-03-28 16:23:54 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.3.Final
+2025-03-28 16:23:54 [main] INFO  org.hibernate.cache.internal.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-03-28 16:23:55 [main] INFO  org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-03-28 16:23:55 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-03-28 16:23:55 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@4ae2c01b
+2025-03-28 16:23:55 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-03-28 16:23:56 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-03-28 16:23:57 [main] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-03-28 16:23:57 [main] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-03-28 16:23:57 [main] INFO  com.backend.demo.config.RabbitMQConfig - Configuring Jackson2JsonMessageConverter for RabbitMQ
+2025-03-28 16:23:57 [main] INFO  com.backend.demo.config.RedisConfig - Initializing Redis Connection Factory with Host: 10.200.208.98 and Port: 32549
+2025-03-28 16:23:57 [main] INFO  com.backend.demo.config.RedisConfig - Configuring Redis Template...
+2025-03-28 16:23:57 [main] INFO  com.backend.demo.config.RedisConfig - Redis Template successfully initialized.
+2025-03-28 16:23:57 [main] INFO  com.backend.demo.config.RabbitMQConfig - Creating Direct Exchange: complaint_exchange
+2025-03-28 16:23:57 [main] INFO  com.backend.demo.config.RabbitMQConfig - Creating Queue: infrastructure_queue
+2025-03-28 16:23:57 [main] INFO  com.backend.demo.config.RabbitMQConfig - Creating Queue: electricity_queue
+2025-03-28 16:23:57 [main] INFO  com.backend.demo.config.RabbitMQConfig - Creating Queue: legal_queue
+2025-03-28 16:23:57 [main] INFO  com.backend.demo.config.RabbitMQConfig - Binding Queue infrastructure_queue to Exchange complaint_exchange with Routing Key complaint.infrastructure
+2025-03-28 16:23:57 [main] INFO  com.backend.demo.config.RabbitMQConfig - Binding Queue electricity_queue to Exchange complaint_exchange with Routing Key complaint.electricity
+2025-03-28 16:23:57 [main] INFO  com.backend.demo.config.RabbitMQConfig - Binding Queue legal_queue to Exchange complaint_exchange with Routing Key complaint.legal
+2025-03-28 16:23:58 [main] WARN  org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-03-28 16:23:58 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-03-28 16:23:58 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2025-03-28 16:23:58 [main] INFO  com.backend.demo.DemoApplication - Started DemoApplication in 8.137 seconds (process running for 9.847)
+2025-03-28 16:23:58 [main] INFO  com.backend.demo.DemoApplication - Application started...
+2025-03-28 16:27:53 [http-nio-8080-exec-1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-03-28 16:27:53 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-03-28 16:27:53 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 38 ms
+2025-03-28 16:27:54 [http-nio-8080-exec-1] INFO  com.backend.demo.controller.ComplaintController - Received complaint creation request: Complaint{id='11', name='Treena', issueType='legal', description='Admin.'}
+2025-03-28 16:27:54 [http-nio-8080-exec-1] INFO  com.backend.demo.service.RabbitMQProducer - Sending complaint to RabbitMQ with routing key complaint.legal: Complaint{id='11', name='Treena', issueType='legal', description='Admin.'}
+2025-03-28 16:27:54 [http-nio-8080-exec-1] INFO  org.springframework.amqp.rabbit.connection.CachingConnectionFactory - Attempting to connect to: [10.200.208.98:30280]
+2025-03-28 16:27:54 [http-nio-8080-exec-1] INFO  org.springframework.amqp.rabbit.connection.CachingConnectionFactory - Created new connection: rabbitConnectionFactory#2512155e:0/SimpleConnection@5769308f [delegate=amqp://user@10.200.208.98:30280/, localPort=61043]
+2025-03-28 16:27:54 [http-nio-8080-exec-1] INFO  com.backend.demo.controller.ComplaintController - Complaint submitted successfully!
+2025-03-28 16:28:11 [http-nio-8080-exec-3] INFO  com.backend.demo.controller.ComplaintController - Fetching top complaints.
+2025-03-28 16:28:11 [http-nio-8080-exec-3] INFO  com.backend.demo.service.RedisService - Fetching top complaints from Redis.
+2025-03-28 16:28:12 [http-nio-8080-exec-3] ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.springframework.data.redis.serializer.SerializationException: Could not read JSON:Failed to parse type 'com.example.consumer.entity.Complaint' (remaining: ''): Cannot locate class 'com.example.consumer.entity.Complaint', problem: com.example.consumer.entity.Complaint ] with root cause
+java.lang.IllegalArgumentException: Failed to parse type 'com.example.consumer.entity.Complaint' (remaining: ''): Cannot locate class 'com.example.consumer.entity.Complaint', problem: com.example.consumer.entity.Complaint
+	at com.fasterxml.jackson.databind.type.TypeParser._problem(TypeParser.java:119) ~[jackson-databind-2.17.2.jar:2.17.2]
+	at com.fasterxml.jackson.databind.type.TypeParser.findClass(TypeParser.java:113) ~[jackson-databind-2.17.2.jar:2.17.2]
+	at com.fasterxml.jackson.databind.type.TypeParser.parseType(TypeParser.java:71) ~[jackson-databind-2.17.2.jar:2.17.2]
+	at com.fasterxml.jackson.databind.type.TypeParser.parse(TypeParser.java:57) ~[jackson-databind-2.17.2.jar:2.17.2]
+	at com.fasterxml.jackson.databind.type.TypeFactory.constructFromCanonical(TypeFactory.java:687) ~[jackson-databind-2.17.2.jar:2.17.2]
+	at org.springframework.data.redis.serializer.GenericJackson2JsonRedisSerializer$TypeResolver.resolveType(GenericJackson2JsonRedisSerializer.java:365) ~[spring-data-redis-3.3.5.jar:3.3.5]
+	at org.springframework.data.redis.serializer.GenericJackson2JsonRedisSerializer.resolveType(GenericJackson2JsonRedisSerializer.java:335) ~[spring-data-redis-3.3.5.jar:3.3.5]
+	at org.springframework.data.redis.serializer.GenericJackson2JsonRedisSerializer.deserialize(GenericJackson2JsonRedisSerializer.java:303) ~[spring-data-redis-3.3.5.jar:3.3.5]
+	at org.springframework.data.redis.serializer.GenericJackson2JsonRedisSerializer.deserialize(GenericJackson2JsonRedisSerializer.java:275) ~[spring-data-redis-3.3.5.jar:3.3.5]
+	at org.springframework.data.redis.serializer.SerializationUtils.deserializeValues(SerializationUtils.java:54) ~[spring-data-redis-3.3.5.jar:3.3.5]
+	at org.springframework.data.redis.serializer.SerializationUtils.deserialize(SerializationUtils.java:68) ~[spring-data-redis-3.3.5.jar:3.3.5]
+	at org.springframework.data.redis.core.AbstractOperations.deserializeValues(AbstractOperations.java:286) ~[spring-data-redis-3.3.5.jar:3.3.5]
+	at org.springframework.data.redis.core.DefaultListOperations.lambda$range$9(DefaultListOperations.java:159) ~[spring-data-redis-3.3.5.jar:3.3.5]
+	at org.springframework.data.redis.core.RedisTemplate.execute(RedisTemplate.java:411) ~[spring-data-redis-3.3.5.jar:3.3.5]
+	at org.springframework.data.redis.core.RedisTemplate.execute(RedisTemplate.java:378) ~[spring-data-redis-3.3.5.jar:3.3.5]
+	at org.springframework.data.redis.core.AbstractOperations.execute(AbstractOperations.java:97) ~[spring-data-redis-3.3.5.jar:3.3.5]
+	at org.springframework.data.redis.core.DefaultListOperations.range(DefaultListOperations.java:159) ~[spring-data-redis-3.3.5.jar:3.3.5]
+	at com.backend.demo.service.RedisService.getTopComplaints(RedisService.java:39) ~[classes/:?]
+	at com.backend.demo.controller.ComplaintController.getTopComplaints(ComplaintController.java:36) ~[classes/:?]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[?:?]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:255) ~[spring-web-6.1.14.jar:6.1.14]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:188) ~[spring-web-6.1.14.jar:6.1.14]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118) ~[spring-webmvc-6.1.14.jar:6.1.14]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:926) ~[spring-webmvc-6.1.14.jar:6.1.14]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:831) ~[spring-webmvc-6.1.14.jar:6.1.14]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-6.1.14.jar:6.1.14]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089) ~[spring-webmvc-6.1.14.jar:6.1.14]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979) ~[spring-webmvc-6.1.14.jar:6.1.14]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014) ~[spring-webmvc-6.1.14.jar:6.1.14]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903) ~[spring-webmvc-6.1.14.jar:6.1.14]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564) ~[tomcat-embed-core-10.1.31.jar:6.0]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.1.14.jar:6.1.14]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658) ~[tomcat-embed-core-10.1.31.jar:6.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-10.1.31.jar:10.1.31]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.1.14.jar:6.1.14]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.14.jar:6.1.14]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.1.14.jar:6.1.14]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.14.jar:6.1.14]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.1.14.jar:6.1.14]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.14.jar:6.1.14]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:384) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:905) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at java.base/java.lang.Thread.run(Thread.java:1575) [?:?]
+2025-03-28 16:42:33 [SpringApplicationShutdownHook] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-03-28 16:42:33 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-03-28 16:42:34 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-03-28 16:42:42 [main] INFO  com.backend.demo.DemoApplication - Starting DemoApplication using Java 23.0.2 with PID 12864 (C:\Users\Anmol Sinha\Desktop\demo\target\classes started by Anmol Sinha in C:\Users\Anmol Sinha\Desktop\demo)
+2025-03-28 16:42:42 [main] INFO  com.backend.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+2025-03-28 16:42:44 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-03-28 16:42:44 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-03-28 16:42:44 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 27 ms. Found 0 JPA repository interfaces.
+2025-03-28 16:42:44 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-03-28 16:42:44 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-03-28 16:42:44 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 5 ms. Found 0 Redis repository interfaces.
+2025-03-28 16:42:45 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-03-28 16:42:45 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-03-28 16:42:45 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2025-03-28 16:42:45 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.31]
+2025-03-28 16:42:45 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-03-28 16:42:45 [main] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3154 ms
+2025-03-28 16:42:46 [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-03-28 16:42:46 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.3.Final
+2025-03-28 16:42:46 [main] INFO  org.hibernate.cache.internal.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-03-28 16:42:47 [main] INFO  org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-03-28 16:42:47 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-03-28 16:42:47 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2f0e7fa8
+2025-03-28 16:42:47 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-03-28 16:42:47 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-03-28 16:42:49 [main] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-03-28 16:42:49 [main] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-03-28 16:42:49 [main] INFO  com.backend.demo.config.RabbitMQConfig - Configuring Jackson2JsonMessageConverter for RabbitMQ
+2025-03-28 16:42:49 [main] INFO  com.backend.demo.config.RabbitMQConfig - Creating Direct Exchange: complaint_exchange
+2025-03-28 16:42:49 [main] INFO  com.backend.demo.config.RabbitMQConfig - Creating Queue: infrastructure_queue
+2025-03-28 16:42:49 [main] INFO  com.backend.demo.config.RabbitMQConfig - Creating Queue: electricity_queue
+2025-03-28 16:42:49 [main] INFO  com.backend.demo.config.RabbitMQConfig - Creating Queue: legal_queue
+2025-03-28 16:42:49 [main] INFO  com.backend.demo.config.RabbitMQConfig - Binding Queue infrastructure_queue to Exchange complaint_exchange with Routing Key complaint.infrastructure
+2025-03-28 16:42:49 [main] INFO  com.backend.demo.config.RabbitMQConfig - Binding Queue electricity_queue to Exchange complaint_exchange with Routing Key complaint.electricity
+2025-03-28 16:42:49 [main] INFO  com.backend.demo.config.RabbitMQConfig - Binding Queue legal_queue to Exchange complaint_exchange with Routing Key complaint.legal
+2025-03-28 16:42:50 [main] WARN  org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-03-28 16:42:51 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-03-28 16:42:51 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2025-03-28 16:42:51 [main] INFO  com.backend.demo.DemoApplication - Started DemoApplication in 9.768 seconds (process running for 11.731)
+2025-03-28 16:42:51 [main] INFO  com.backend.demo.DemoApplication - Application started...
+2025-03-28 16:43:26 [http-nio-8080-exec-1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-03-28 16:43:26 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-03-28 16:43:26 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2025-03-28 16:43:26 [http-nio-8080-exec-1] INFO  com.backend.demo.controller.ComplaintController - Received complaint creation request: Complaint{id='12', name='Varun', issueType='electricity', description='Electricity problem.'}
+2025-03-28 16:43:26 [http-nio-8080-exec-1] INFO  com.backend.demo.service.RabbitMQProducer - Sending complaint to RabbitMQ with routing key complaint.electricity: Complaint{id='12', name='Varun', issueType='electricity', description='Electricity problem.'}
+2025-03-28 16:43:26 [http-nio-8080-exec-1] INFO  org.springframework.amqp.rabbit.connection.CachingConnectionFactory - Attempting to connect to: [10.200.208.98:30280]
+2025-03-28 16:43:26 [http-nio-8080-exec-1] INFO  org.springframework.amqp.rabbit.connection.CachingConnectionFactory - Created new connection: rabbitConnectionFactory#233d2b76:0/SimpleConnection@6b90ded7 [delegate=amqp://user@10.200.208.98:30280/, localPort=61464]
+2025-03-28 16:43:26 [http-nio-8080-exec-1] INFO  com.backend.demo.controller.ComplaintController - Complaint submitted successfully!
+2025-03-28 17:00:10 [SpringApplicationShutdownHook] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-03-28 17:00:10 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-03-28 17:00:10 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-03-28 17:00:13 [main] INFO  com.backend.demo.DemoApplication - Starting DemoApplication using Java 23.0.2 with PID 23328 (C:\Users\Anmol Sinha\Desktop\demo\target\classes started by Anmol Sinha in C:\Users\Anmol Sinha\Desktop\demo)
+2025-03-28 17:00:13 [main] INFO  com.backend.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+2025-03-28 17:00:14 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-03-28 17:00:14 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-03-28 17:00:14 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 16 ms. Found 0 JPA repository interfaces.
+2025-03-28 17:00:14 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-03-28 17:00:14 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-03-28 17:00:14 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 2 ms. Found 0 Redis repository interfaces.
+2025-03-28 17:00:14 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-03-28 17:00:14 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-03-28 17:00:14 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2025-03-28 17:00:14 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.31]
+2025-03-28 17:00:15 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-03-28 17:00:15 [main] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1617 ms
+2025-03-28 17:00:15 [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-03-28 17:00:15 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.3.Final
+2025-03-28 17:00:15 [main] INFO  org.hibernate.cache.internal.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-03-28 17:00:15 [main] INFO  org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-03-28 17:00:16 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-03-28 17:00:16 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2f0e7fa8
+2025-03-28 17:00:16 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-03-28 17:00:16 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-03-28 17:00:17 [main] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-03-28 17:00:17 [main] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-03-28 17:00:17 [main] INFO  com.backend.demo.config.RabbitMQConfig - Configuring Jackson2JsonMessageConverter for RabbitMQ
+2025-03-28 17:00:17 [main] INFO  com.backend.demo.config.RabbitMQConfig - Creating Direct Exchange: complaint_exchange
+2025-03-28 17:00:17 [main] INFO  com.backend.demo.config.RabbitMQConfig - Creating Queue: infrastructure_queue
+2025-03-28 17:00:17 [main] INFO  com.backend.demo.config.RabbitMQConfig - Creating Queue: electricity_queue
+2025-03-28 17:00:17 [main] INFO  com.backend.demo.config.RabbitMQConfig - Creating Queue: legal_queue
+2025-03-28 17:00:17 [main] INFO  com.backend.demo.config.RabbitMQConfig - Binding Queue infrastructure_queue to Exchange complaint_exchange with Routing Key complaint.infrastructure
+2025-03-28 17:00:17 [main] INFO  com.backend.demo.config.RabbitMQConfig - Binding Queue electricity_queue to Exchange complaint_exchange with Routing Key complaint.electricity
+2025-03-28 17:00:17 [main] INFO  com.backend.demo.config.RabbitMQConfig - Binding Queue legal_queue to Exchange complaint_exchange with Routing Key complaint.legal
+2025-03-28 17:00:17 [main] WARN  org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-03-28 17:00:18 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-03-28 17:00:18 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2025-03-28 17:00:18 [main] INFO  com.backend.demo.DemoApplication - Started DemoApplication in 5.55 seconds (process running for 6.67)
+2025-03-28 17:00:18 [main] INFO  com.backend.demo.DemoApplication - Application started...
+2025-03-28 17:00:41 [http-nio-8080-exec-1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-03-28 17:00:41 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-03-28 17:00:41 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 0 ms
+2025-03-28 17:00:41 [http-nio-8080-exec-2] INFO  com.backend.demo.controller.ComplaintController - Received complaint creation request: Complaint{id='13', name='Yuvraj', issueType='electricity', description='electricity issue.'}
+2025-03-28 17:00:41 [http-nio-8080-exec-2] INFO  com.backend.demo.service.RabbitMQProducer - Sending complaint to RabbitMQ with routing key complaint.electricity: Complaint{id='13', name='Yuvraj', issueType='electricity', description='electricity issue.'}
+2025-03-28 17:00:41 [http-nio-8080-exec-2] INFO  org.springframework.amqp.rabbit.connection.CachingConnectionFactory - Attempting to connect to: [10.200.208.98:30280]
+2025-03-28 17:00:42 [http-nio-8080-exec-2] INFO  org.springframework.amqp.rabbit.connection.CachingConnectionFactory - Created new connection: rabbitConnectionFactory#233d2b76:0/SimpleConnection@e965fe [delegate=amqp://user@10.200.208.98:30280/, localPort=62081]
+2025-03-28 17:00:42 [http-nio-8080-exec-2] INFO  com.backend.demo.controller.ComplaintController - Complaint submitted successfully!
